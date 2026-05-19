@@ -16,6 +16,7 @@ import {
   isFullscreenSupported,
   requestElementFullscreen,
 } from "@/infrastructure/browser/fullscreen";
+import { getBundledRecentItems, isBundledRecentId } from "@/domain/data/bundledSamples";
 import { ensureRuffleLoaded } from "@/infrastructure/ruffle/loadRuffle";
 
 const SWF_EXTENSION = /\.swf$/i;
@@ -46,8 +47,12 @@ export class PlaybackOrchestrator {
   }
 
   async refreshRecent(): Promise<void> {
-    const recentItems = await this.recentLibrary.list();
-    this.store.patch({ recentItems });
+    const bundled = getBundledRecentItems();
+    const bundledUrls = new Set(bundled.map((item) => item.url));
+    const saved = (await this.recentLibrary.list()).filter(
+      (item) => !item.url || !bundledUrls.has(item.url),
+    );
+    this.store.patch({ recentItems: [...bundled, ...saved] });
   }
 
   async consumeLocationUrl(): Promise<void> {
@@ -168,6 +173,7 @@ export class PlaybackOrchestrator {
   }
 
   async removeRecent(id: string): Promise<void> {
+    if (isBundledRecentId(id)) return;
     await this.recentLibrary.remove(id);
     await this.refreshRecent();
   }

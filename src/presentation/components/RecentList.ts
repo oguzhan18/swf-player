@@ -14,11 +14,11 @@ export class RecentList {
 
     const heading = document.createElement("h3");
     heading.className = "recent-list__label";
-    heading.textContent = "Recent";
+    heading.textContent = "Recent & demos";
 
     this.empty = document.createElement("p");
     this.empty.className = "recent-list__empty";
-    this.empty.textContent = "Opened files and URLs appear here.";
+    this.empty.textContent = "Demo games and your opened files appear here.";
 
     this.list = document.createElement("ul");
     this.list.className = "recent-list__items";
@@ -53,11 +53,19 @@ export class RecentList {
     const text = document.createElement("span");
     text.className = "recent-list__text";
     text.append(name, meta);
-    openBtn.append(text);
+    const action = document.createElement("span");
+    action.className = "recent-list__action";
+    action.textContent = "Open";
+    openBtn.append(text, action);
 
     openBtn.addEventListener("click", () => {
       void this.orchestrator.openRecent(item.id);
     });
+
+    if (item.pinned) {
+      row.append(openBtn);
+      return row;
+    }
 
     const removeBtn = document.createElement("button");
     removeBtn.type = "button";
@@ -76,6 +84,7 @@ export class RecentList {
 
 function formatMeta(item: RecentItem): string {
   const size = formatBytes(item.size);
+  if (item.pinned) return `${size} · Bundled`;
   if (item.source === "url") return `${size} · URL`;
   if (item.storedLocally) return `${size} · Local`;
   return `${size} · Re-select required`;

@@ -8,4 +8,5 @@ export interface RecentItem {
   readonly openedAt: number;
   readonly url?: string;
   readonly storedLocally: boolean;
+  readonly pinned?: boolean;
 }

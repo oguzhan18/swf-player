@@ -101,11 +101,21 @@
   flex: 1;
   min-width: 0;
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
   text-align: left;
   padding: var(--space-3);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
   background: var(--color-bg);
+}
+
+.recent-list__action {
+  flex-shrink: 0;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text);
 }
 
 .recent-list__open:hover:not(:disabled) {
