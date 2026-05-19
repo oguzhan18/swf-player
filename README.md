@@ -61,6 +61,14 @@ VITE_BASE_PATH=/swf-player/ npm run build
 npm run preview
 ```
 
+## Vercel
+
+Connect the repo with **Production Branch: `main`** (not `gh-pages` — that branch is static output only).
+
+`vercel.json` is included. Do not set a custom build command to `vite build`; use `npm run build` so `postinstall` syncs Ruffle assets.
+
+Environment (optional on Vercel): leave `VITE_BASE_PATH` unset — defaults to `/` at the project root.
+
 ## Architecture
 
 ```
