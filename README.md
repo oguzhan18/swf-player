@@ -46,9 +46,13 @@ https://oguzhan18.github.io/swf-player/?url=https://example.com/game.swf
 
 ## GitHub Pages
 
-1. Fork or push this repo to [github.com/oguzhan18/swf-player](https://github.com/oguzhan18/swf-player).
-2. In the repo: **Settings → Pages → Build and deployment → Source:** GitHub Actions.
-3. Push to `main`. The workflow deploys to `https://oguzhan18.github.io/swf-player/`.
+1. Push to `main` — the workflow builds and pushes `dist/` to the **`gh-pages`** branch.
+2. In the repo: **Settings → Pages → Build and deployment**
+   - **Source:** Deploy from a branch
+   - **Branch:** `gh-pages` → `/ (root)`
+3. Wait 1–2 minutes. Site: [oguzhan18.github.io/swf-player](https://oguzhan18.github.io/swf-player/)
+
+> Do **not** select “GitHub Actions” as the Pages source for this repo; deployment uses the `gh-pages` branch.
 
 Local Pages build:
 

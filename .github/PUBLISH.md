@@ -11,6 +11,10 @@ git remote add origin https://github.com/oguzhan18/swf-player.git
 git push -u origin main
 ```
 
-Then enable **Settings → Pages → Source: GitHub Actions**.
+Then enable **Settings → Pages**:
 
-Your demo will be at: **https://oguzhan18.github.io/swf-player/**
+- **Source:** Deploy from a branch  
+- **Branch:** `gh-pages`  
+- **Folder:** `/ (root)`
+
+After the first workflow run completes, your demo will be at: **https://oguzhan18.github.io/swf-player/**
