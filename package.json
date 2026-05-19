@@ -1,0 +1,43 @@
+{
+  "name": "swf-player",
+  "version": "1.0.0",
+  "description": "Web-based Flash (SWF) game player powered by Ruffle — drag, drop, URL, and recent files.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Oğuzhan ÇART (https://github.com/oguzhan18)",
+  "homepage": "https://oguzhan18.github.io/swf-player/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oguzhan18/swf-player.git"
+  },
+  "bugs": {
+    "url": "https://github.com/oguzhan18/swf-player/issues"
+  },
+  "keywords": [
+    "swf",
+    "flash",
+    "ruffle",
+    "game-player",
+    "emulator",
+    "typescript",
+    "vite",
+    "webassembly"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "postinstall": "node scripts/sync-ruffle.mjs",
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@ruffle-rs/ruffle": "^0.2.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5"
+  }
+}
