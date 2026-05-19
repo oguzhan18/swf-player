@@ -1,6 +1,6 @@
 name: Deploy to GitHub Pages
 
-# Live site: https://oguzhan18.github.io/swf-player/
+# Optional mirror: GitHub Pages (production: https://swf-player-theta.vercel.app/)
 #
 # One-time setup (required):
 # Settings → Pages → Build and deployment → Source: "Deploy from a branch"

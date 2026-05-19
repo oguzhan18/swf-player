@@ -5,7 +5,7 @@
   "type": "module",
   "license": "MIT",
   "author": "Oğuzhan ÇART (https://github.com/oguzhan18)",
-  "homepage": "https://oguzhan18.github.io/swf-player/",
+  "homepage": "https://swf-player-theta.vercel.app/",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/oguzhan18/swf-player.git"

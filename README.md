@@ -7,7 +7,7 @@
 
 Play classic **Flash (`.swf`)** games in the browser — no plugin, no install. Drag and drop a file, paste a URL, or reopen something from your recent list.
 
-**Live demo:** [oguzhan18.github.io/swf-player](https://oguzhan18.github.io/swf-player/)
+**Live demo:** [swf-player-theta.vercel.app](https://swf-player-theta.vercel.app/)
 
 ## Features
 
@@ -32,7 +32,7 @@ Open the URL from the terminal (usually `http://localhost:5173`).
 ### Deep link
 
 ```
-https://oguzhan18.github.io/swf-player/?url=https://example.com/game.swf
+https://swf-player-theta.vercel.app/?url=https://example.com/game.swf
 ```
 
 ## Scripts
@@ -44,30 +44,28 @@ https://oguzhan18.github.io/swf-player/?url=https://example.com/game.swf
 | `npm run preview` | Preview production build |
 | `npm run typecheck` | TypeScript check |
 
-## GitHub Pages
+## Deployment (Vercel)
 
-1. Push to `main` — the workflow builds and pushes `dist/` to the **`gh-pages`** branch.
-2. In the repo: **Settings → Pages → Build and deployment**
-   - **Source:** Deploy from a branch
-   - **Branch:** `gh-pages` → `/ (root)`
-3. Wait 1–2 minutes. Site: [oguzhan18.github.io/swf-player](https://oguzhan18.github.io/swf-player/)
+Production: [swf-player-theta.vercel.app](https://swf-player-theta.vercel.app/)
 
-> Do **not** select “GitHub Actions” as the Pages source for this repo; deployment uses the `gh-pages` branch.
+Connect the repo with **Production Branch: `main`** (not `gh-pages`).
 
-Local Pages build:
+`vercel.json` is included. Use `npm run build` (not `vite build` alone) so `postinstall` syncs Ruffle assets. Leave `VITE_BASE_PATH` unset on Vercel — defaults to `/`.
+
+<details>
+<summary>GitHub Pages (optional)</summary>
+
+1. Push to `main` — workflow pushes `dist/` to **`gh-pages`**.
+2. **Settings → Pages →** Deploy from branch → `gh-pages` / `/ (root)`.
+
+Local build for Pages subpath:
 
 ```bash
 VITE_BASE_PATH=/swf-player/ npm run build
 npm run preview
 ```
 
-## Vercel
-
-Connect the repo with **Production Branch: `main`** (not `gh-pages` — that branch is static output only).
-
-`vercel.json` is included. Do not set a custom build command to `vite build`; use `npm run build` so `postinstall` syncs Ruffle assets.
-
-Environment (optional on Vercel): leave `VITE_BASE_PATH` unset — defaults to `/` at the project root.
+</details>
 
 ## Architecture
 
