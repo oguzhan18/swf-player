@@ -37,7 +37,7 @@
     "@ruffle-rs/ruffle": "^0.2.0"
   },
   "devDependencies": {
-    "typescript": "^5.8.3",
+    "typescript": "^6.0.3",
     "vite": "^6.3.5"
   }
 }
