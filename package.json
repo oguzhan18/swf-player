@@ -34,7 +34,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@ruffle-rs/ruffle": "^0.2.0"
+    "@ruffle-rs/ruffle": "^0.5.0"
   },
   "devDependencies": {
     "typescript": "5.8.3",
